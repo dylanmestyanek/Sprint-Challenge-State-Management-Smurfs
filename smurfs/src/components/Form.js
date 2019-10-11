@@ -1,5 +1,6 @@
-import React, {useState, useImperativeHandle} from "react";
+import React, {useState} from "react";
 import { connect } from "react-redux";
+import styled from "styled-components"
 
 import { addSmurf } from "../actions";
 
@@ -33,7 +34,7 @@ const Form = ({ addSmurf }) => {
     }
 
     return(
-        <div>
+        <FormContainer>
             <h2>Introduce a new smurf to the family!</h2>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -57,10 +58,29 @@ const Form = ({ addSmurf }) => {
                     placeholder="Height"
                     onChange={handleChange}
                 />
+                <br/>
                 <button type="submit">Add Smurf!</button>
             </form>
-        </div>
+        </FormContainer>
     )
 }
 
 export default connect(null, {addSmurf})(Form)
+
+const FormContainer = styled.div`
+
+input{
+    margin: 0 10px;
+
+} 
+
+button {
+    background: rgba(100, 150, 220, .8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+    margin-top: 10px;
+    padding: 5px 0;
+}
+`;
