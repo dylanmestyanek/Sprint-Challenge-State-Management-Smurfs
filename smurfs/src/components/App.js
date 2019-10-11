@@ -1,16 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
+
+
+import Form from "./Form"
+import SmurfList from "./SmurfList"
+
+const App = () => {
+  return (
+    <div className="App">
+      <h1>Smurf's up!</h1>
+      <p>Get it...? Instead of surf's up.. nevermind.</p>
+      <Form />
+      <SmurfList />
+    </div>
+  );
 }
+
+
 
 export default App;
