@@ -23,10 +23,31 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+  <strong>Answer:</strong> Context API helps solve the issue of poor state management within components. It allows you to wrap a chunk of components in a Provider that allows each component to access that state, only when they need it. This is better than the alternative of prop drilling through levels of components, where those components may not need even the props they're passing. The downside of Context is it can make your components less reusable.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  <strong>Answer:</strong> 
+
+  Actions - These are objects that are created by action creators. These actions consist of a "type" property that are passed into the Reducer to tell the Reducer how to manipulate state. In short, actions are instructions for the Reducer.
+
+  Reducers - These are functions that manipulate state depending on what type is provided from the action object. Typically structured in a switch case format. They can also take in additional data from the action object typically through a "payload" property.
+
+  Store - The store is where the state is stored, to be provided to the componentes. The store is passed into the `<Provider>` wrapper, which then wraps the main component. Then, each child component can use the required method to access that state from the store. For example, in React-Redux this could be achieved through the `connect` method. It is known as the 'single source of truth' due to the fact that everything your components may need will be stored in this one location, instead of passing props through components like a yo-yo.
+
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  <strong>Answer:</strong> Application state is a form of state management that happens on a greater scale than the component level. This could be achieved through systems such as Context or Redux. Component state is state held directly within the component, and if other components need access to this state they are _required_ to pass the state as props, and child state can <strong>not</strong> be passed to parent components. What justifies when to use either form of state management typically depends on the size and complexity of your project, and how much state is required to be held. Typically if components have 3+ pieces of state, you may want to consider using an advanced state management system.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+  <strong>Answer:</strong> Reducers can only accept one form of data, and that is an object. Redux-thunk is middleware that can be provided in the creation of your Redux store that allows the action creators to return other functions, which then dispatch action objects depending on the event that occurred. Without Redux-thunk you wouldn't be able to return functions in your action creators, such as situation where you want to make an API call and adjust the state depending on whether the request is processing, succeeded, or failed.
+ 
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+  <strong>Answer:</strong> My favorite state management system has been Redux due to it's clean operation, and efficieny. While the setup is extensive and requires a lot of time to plan and structure, the ultimate result is extremely straight forward. With the use of actions and reducers, you can predict exactly what is going to happen to your state. Also with tools like the Redux Dev Tools in chrome, you can see _exactly_ what is happening with your state, and where errors may be occuring.
 
 ## Project Set Up
 
