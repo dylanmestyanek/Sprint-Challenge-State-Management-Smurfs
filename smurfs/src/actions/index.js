@@ -10,3 +10,13 @@ export const fetchSmurfs = () => dispatch => {
         .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }))
 }
+
+export const ADDING_SMURF = "ADDING_SMURF"
+export const SUCCESS_ADD_SMURF = "SUCCESS_ADD_SMURF"
+export const FAIL_ADD_SMURF = "FAIL_ADD_SMURF"
+export const addSmurf = (smurfData) => dispatch => {
+    dispatch({ type: ADDING_SMURF })
+    axios.post("http://localhost:3333/smurfs", smurfData)
+        .then(res => console.log(res))
+        .catch(err => console.log("POST REQUEST FAILED IDIOT", err))
+}
