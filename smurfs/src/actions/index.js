@@ -17,6 +17,6 @@ export const FAIL_ADD_SMURF = "FAIL_ADD_SMURF"
 export const addSmurf = (smurfData) => dispatch => {
     dispatch({ type: ADDING_SMURF })
     axios.post("http://localhost:3333/smurfs", smurfData)
-        .then(res => console.log(res))
-        .catch(err => console.log("POST REQUEST FAILED IDIOT", err))
+        .then(res => console.log(res.data))
+        .catch(err => dispatch({ type: FAIL_ADD_SMURF, error: err.response}))
 }

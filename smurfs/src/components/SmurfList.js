@@ -11,7 +11,7 @@ const SmurfList = ({
 
     useEffect(() => {
         fetchSmurfs();
-    }, [fetchSmurfs])
+    }, [fetchSmurfs, smurfs])
     
     console.log("State being passed into SmurfList:", smurfs)
     return (
