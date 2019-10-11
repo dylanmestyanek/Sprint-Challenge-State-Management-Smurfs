@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="App">
       <h1> Smurf Village :D </h1>
-      {/* <Form /> */}
+      <Form />
       <SmurfList />
     </div>
   );
